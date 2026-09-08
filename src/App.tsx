@@ -11,6 +11,8 @@ type ProgramDay = {
 
 const LOGO_SRC = "/images/oktober-forst-logo.png";
 const LOGO_ALT = "Stemma ufficiale Oktober Forst — Festa della Birra, Parco Villa Filippina Palermo";
+const VILLA_LOGO_SRC = "/images/logo-villa-filippina.png";
+const VILLA_LOGO_ALT = "Logo Parco Villa Filippina — Location ufficiale Oktober Forst Palermo";
 
 const program: ProgramDay[] = [
   {
@@ -363,6 +365,14 @@ function App() {
         <section className="contacts-section section-cream" id="contatti">
           <div className="page-wrap">
             <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow">Contatti</p><h2>Parla<br /><span>con noi.</span></h2></div><p className="section-lead">Per prenotare un tavolo o per qualsiasi informazione: scrivici una mail, seguici sui social o vieni a trovarci direttamente al parco.</p></div>
+            <div className="contacts-venue reveal reveal--up reveal-delay-1">
+              <img className="contacts-venue-logo" src={VILLA_LOGO_SRC} alt={VILLA_LOGO_ALT} width={280} height={280} loading="lazy" decoding="async" />
+              <div className="contacts-venue-body">
+                <small>Location ufficiale</small>
+                <strong>Parco Villa Filippina</strong>
+                <p>Il cuore verde di Palermo che ospita Oktober Forst: quattro serate tra alberi, luci calde e musica dal vivo.</p>
+              </div>
+            </div>
             <div className="contacts-grid reveal reveal--up reveal-delay-1">
               <a className="contact-card contact-card--wide" href="https://www.google.com/maps/search/?api=1&query=Piazza+San+Francesco+di+Paola+18+Palermo" target="_blank" rel="noreferrer">
                 <span className="contact-icon"><PinIcon /></span>

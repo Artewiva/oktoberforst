@@ -169,6 +169,11 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 6vw, 76px); letter-spacing: -.055e
 .contacts-section { padding: 123px 0 131px; }
 .contacts-section .section-intro { margin-bottom: 71px; }
 .contacts-section h2 { color: var(--green); }
+.contacts-venue { display: flex; align-items: center; gap: 28px; margin-bottom: 26px; padding: 24px 28px; border: 1px solid var(--line); background: #fff; }
+.contacts-venue-logo { width: 132px; height: 132px; flex: 0 0 132px; object-fit: cover; object-position: center; border-radius: 20px; background: var(--green); border: 2px solid var(--green); box-shadow: 0 14px 30px rgba(34,76,56,.18); }
+.contacts-venue-body small { display: block; margin-bottom: 8px; color: var(--amber); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.contacts-venue-body strong { display: block; color: var(--green); font-family: "Arial Narrow", Arial, sans-serif; font-size: 30px; font-weight: 600; letter-spacing: -.03em; line-height: 1.05; }
+.contacts-venue-body p { max-width: 520px; margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 .contact-card { display: grid; grid-template-columns: 46px 1fr; gap: 18px; align-items: start; padding: 27px 26px; border: 1px solid var(--line); background: #fff; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
 .contact-card:hover { transform: translateY(-3px); border-color: var(--amber-bright); box-shadow: 0 14px 32px rgba(34,76,56,.13); }
@@ -340,6 +345,9 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 6vw, 76px); letter-spacing: -.055e
   .sponsor-lockup { grid-column: 1 / -1; }
   .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; line-height: 1.5; }
   .contacts-section .section-intro { margin-bottom: 48px; }
+  .contacts-venue { flex-direction: column; align-items: flex-start; gap: 18px; padding: 20px; }
+  .contacts-venue-logo { width: 112px; height: 112px; flex-basis: 112px; border-radius: 16px; }
+  .contacts-venue-body strong { font-size: 26px; }
   .contacts-grid { grid-template-columns: 1fr; gap: 16px; }
   .contact-card { padding: 21px 19px; }
 }
