@@ -72,7 +72,7 @@ const faqs = [
   {
     question: "Come posso prenotare un tavolo?",
     answer:
-      "Clicca su Prenota il tuo tavolo e inviaci la richiesta indicando giornata, numero di persone e un recapito. Il nostro team ti ricontattera per confermare disponibilita e dettagli.",
+      "Scrivici a parcovillafilippinaticket@gmail.com oppure scrivici su Facebook, Instagram o TikTok indicando giornata, numero di persone e un recapito. Il nostro team ti ricontattera per confermare disponibilita e dettagli.",
   },
   {
     question: "Posso venire con bambini e famiglia?",
@@ -131,6 +131,42 @@ function PinIcon() {
   );
 }
 
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="m4.5 7.5 7.5 5.5 7.5-5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M13.4 21v-7.2h2.4l.4-2.8h-2.8V9.2c0-.8.2-1.3 1.3-1.3h1.5V5.4c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.1H8.2v2.8h2.4V21h2.8Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+      <rect x="4" y="4" width="16" height="16" rx="4.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="12" cy="12" r="3.6" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16.9" cy="7.1" r="1.05" fill="currentColor" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+      <path d="M14.2 3.6v10.5a3.1 3.1 0 1 1-3.1-3.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M14.2 3.6c.5 2.6 2.2 4.2 4.8 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function Countdown() {
   const eventDate = new Date("2026-10-15T18:30:00+02:00").getTime();
   const getTimeLeft = () => {
@@ -175,8 +211,6 @@ function App() {
   const [activeDay, setActiveDay] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [bookingOpen, setBookingOpen] = useState(false);
-  const [bookingSent, setBookingSent] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
 
   useEffect(() => {
@@ -203,27 +237,6 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  const closeBooking = () => {
-    setBookingOpen(false);
-    setBookingSent(false);
-  };
-
-  useEffect(() => {
-    if (!bookingOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setBookingOpen(false);
-        setBookingSent(false);
-      }
-    };
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [bookingOpen]);
-
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
@@ -239,9 +252,9 @@ function App() {
             <a href="#location" onClick={() => setMobileMenuOpen(false)}>Venue</a>
             <a href="#esperienza" onClick={() => setMobileMenuOpen(false)}>Birra &amp; food</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
-            <button className="nav-book mobile-only" onClick={() => { setMobileMenuOpen(false); setBookingOpen(true); }}>Prenota ora <ArrowIcon /></button>
+            <button className="nav-book mobile-only" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button>
           </nav>
-          <button className="nav-book desktop-only" onClick={() => setBookingOpen(true)}>Prenota ora <ArrowIcon /></button>
+          <a className="nav-book desktop-only" href="#contatti">Contatti <ArrowIcon /></a>
           <button className={`menu-toggle ${mobileMenuOpen ? "menu-toggle--open" : ""}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"} aria-expanded={mobileMenuOpen}><span /><span /></button>
         </div>
       </header>
@@ -261,7 +274,7 @@ function App() {
                 <p className="eyebrow reveal reveal--up reveal-delay-1">15 - 18 OTTOBRE 2026 / PARCO VILLA FILIPPINA</p>
                 <h1 className="reveal reveal--up reveal-delay-2">Quattro giorni.<br /><span>Una sola grande sete.</span></h1>
                 <p className="hero-intro reveal reveal--up reveal-delay-3">La festa Forst torna nel cuore di Palermo. Birra appena spillata, live music e sapori da condividere sotto gli alberi di Villa Filippina.</p>
-                <div className="hero-actions reveal reveal--up reveal-delay-4"><button className="button button--amber" onClick={() => setBookingOpen(true)}>Prenota il tuo tavolo <ArrowIcon /></button><button className="text-link text-link--light" onClick={() => scrollTo("programma")}>Scopri il programma <ArrowIcon /></button></div>
+                <div className="hero-actions reveal reveal--up reveal-delay-4"><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><button className="text-link text-link--light" onClick={() => scrollTo("programma")}>Scopri il programma <ArrowIcon /></button></div>
                 <Countdown />
               </div>
               <div className="hero-visual reveal reveal--fade reveal-delay-2">
@@ -302,7 +315,7 @@ function App() {
               <div className="program-panel" id={`day-panel-${program[activeDay].date}`} role="tabpanel">
                 <div className="program-panel-heading"><div><p className="panel-day">{program[activeDay].weekday} {program[activeDay].date} ottobre</p><h3>{program[activeDay].title}</h3></div><p>{program[activeDay].mood}</p></div>
                 <div className="act-list">{program[activeDay].acts.map((act) => <div className={`act-row ${act.accent ? "act-row--accent" : ""}`} key={act.name}><time>{act.time}</time><div className="act-line" /><div className="act-name"><strong>{act.name}</strong><span>{act.detail}</span></div>{act.accent && <span className="live-tag">Live</span>}</div>)}</div>
-                <div className="program-panel-foot"><span>Orari indicativi, programma soggetto a variazioni</span><button className="text-link text-link--amber" onClick={() => setBookingOpen(true)}>Prenota per questa sera <ArrowIcon /></button></div>
+                <div className="program-panel-foot"><span>Orari indicativi, programma soggetto a variazioni</span><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div>
               </div>
             </div>
           </div>
@@ -344,15 +357,42 @@ function App() {
         </section>
 
         <section className="faq-section" id="faq">
-          <div className="page-wrap faq-layout"><div className="faq-intro reveal reveal--up"><p className="eyebrow eyebrow--amber">Le domande frequenti</p><h2>Tutto quello<br /><span>che vuoi sapere.</span></h2><p>Hai ancora un dubbio? Scrivici e ti risponderemo prima del prossimo brindisi.</p><a className="text-link text-link--amber" href="mailto:ciao@oktoberforst.it">Contattaci <ArrowIcon /></a></div><div className="faq-list reveal reveal--up reveal-delay-1">{faqs.map((faq, index) => { const isOpen = openFaq === index; return <div className={`faq-item ${isOpen ? "faq-item--open" : ""}`} key={faq.question}><button className="faq-question" onClick={() => setOpenFaq(isOpen ? null : index)} aria-expanded={isOpen} aria-controls={`faq-answer-${index}`}><span>{faq.question}</span><span className="faq-plus" aria-hidden="true" /></button><div className="faq-answer" id={`faq-answer-${index}`} hidden={!isOpen}><p>{faq.answer}</p></div></div>; })}</div></div>
+          <div className="page-wrap faq-layout"><div className="faq-intro reveal reveal--up"><p className="eyebrow eyebrow--amber">Le domande frequenti</p><h2>Tutto quello<br /><span>che vuoi sapere.</span></h2><p>Hai ancora un dubbio? Scrivici e ti risponderemo prima del prossimo brindisi.</p><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div><div className="faq-list reveal reveal--up reveal-delay-1">{faqs.map((faq, index) => { const isOpen = openFaq === index; return <div className={`faq-item ${isOpen ? "faq-item--open" : ""}`} key={faq.question}><button className="faq-question" onClick={() => setOpenFaq(isOpen ? null : index)} aria-expanded={isOpen} aria-controls={`faq-answer-${index}`}><span>{faq.question}</span><span className="faq-plus" aria-hidden="true" /></button><div className="faq-answer" id={`faq-answer-${index}`} hidden={!isOpen}><p>{faq.answer}</p></div></div>; })}</div></div>
         </section>
 
-        <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giorni di musica, tavolate e birra Forst nel parco piu bello della citta.</p><button className="button button--amber" onClick={() => setBookingOpen(true)}>Prenota il tuo tavolo <ArrowIcon /></button><small>Ingresso gratuito / 15 - 18 ottobre 2026</small></div></section>
+        <section className="contacts-section section-cream" id="contatti">
+          <div className="page-wrap">
+            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow">Contatti</p><h2>Parla<br /><span>con noi.</span></h2></div><p className="section-lead">Per prenotare un tavolo o per qualsiasi informazione: scrivici una mail, seguici sui social o vieni a trovarci direttamente al parco.</p></div>
+            <div className="contacts-grid reveal reveal--up reveal-delay-1">
+              <a className="contact-card contact-card--wide" href="https://www.google.com/maps/search/?api=1&query=Piazza+San+Francesco+di+Paola+18+Palermo" target="_blank" rel="noreferrer">
+                <span className="contact-icon"><PinIcon /></span>
+                <div className="contact-body"><small>Indirizzo</small><strong>Piazza San Francesco di Paola, 18 — Palermo</strong><p>Parco Villa Filippina. Apri in Google Maps per le indicazioni.</p></div>
+              </a>
+              <a className="contact-card contact-card--email" href="mailto:parcovillafilippinaticket@gmail.com">
+                <span className="contact-icon"><MailIcon /></span>
+                <div className="contact-body"><small>Mail</small><strong>parcovillafilippinaticket@gmail.com</strong><p>Scrivici per prenotare un tavolo o per qualsiasi informazione.</p></div>
+              </a>
+              <a className="contact-card" href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">
+                <span className="contact-icon"><FacebookIcon /></span>
+                <div className="contact-body"><small>Facebook</small><strong>Parcovillafilippina</strong><p>Segui la pagina ufficiale per aggiornamenti, orari e novita.</p></div>
+              </a>
+              <a className="contact-card" href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">
+                <span className="contact-icon"><InstagramIcon /></span>
+                <div className="contact-body"><small>Instagram</small><strong>Parcovillafilippinapalermo</strong><p>Foto, serate e momenti dal cuore del festival.</p></div>
+              </a>
+              <a className="contact-card" href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">
+                <span className="contact-icon"><TikTokIcon /></span>
+                <div className="contact-body"><small>Tik Tok</small><strong>@artewiva</strong><p>Video, replay e sorprese in diretta dal parco.</p></div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giorni di musica, tavolate e birra Forst nel parco piu bello della citta.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito / 15 - 18 ottobre 2026</small></div></section>
       </main>
 
-      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>OKTOBER FORST</strong><span>Festa della Birra • Palermo</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Venue</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="mailto:ciao@oktoberforst.it">Email <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><strong>FORST</strong><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><span>© 2026 Oktober Forst Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div></div></footer>
+      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>OKTOBER FORST</strong><span>Festa della Birra • Palermo</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Venue</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><strong>FORST</strong><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><span>© 2026 Oktober Forst Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div></div></footer>
 
-      {bookingOpen && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeBooking(); }}><div className="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={closeBooking} aria-label="Chiudi finestra">&times;</button>{!bookingSent ? <><div className="modal-logo-row"><img src={LOGO_SRC} alt={LOGO_ALT} width={56} height={56} loading="lazy" decoding="async" /><p className="eyebrow">Prenota il tuo posto</p></div><h2 id="booking-title">Ci teniamo<br /><span>il tuo tavolo.</span></h2><p className="modal-intro">Lascia i tuoi dati. Ti ricontatteremo per confermare disponibilita e dettagli della prenotazione.</p><form onSubmit={(event) => { event.preventDefault(); setBookingSent(true); }}><label>Nome e cognome<input required type="text" placeholder="Il tuo nome" autoComplete="name" /></label><div className="form-split"><label>La tua email<input required type="email" placeholder="nome@email.it" autoComplete="email" /></label><label>Persone<select defaultValue="" required><option value="" disabled>Seleziona</option><option>2 persone</option><option>3-4 persone</option><option>5-8 persone</option><option>9+ persone</option></select></label></div><label>Serata preferita<select defaultValue="" required><option value="" disabled>Scegli una data</option><option>Giovedi 15 ottobre</option><option>Venerdi 16 ottobre</option><option>Sabato 17 ottobre</option><option>Domenica 18 ottobre</option></select></label><button className="button button--green button--full" type="submit">Invia richiesta <ArrowIcon /></button></form><small className="form-note">Nessun pagamento richiesto. La richiesta non costituisce conferma automatica.</small></> : <div className="booking-success"><img className="success-logo" src={LOGO_SRC} alt={LOGO_ALT} width={84} height={84} loading="lazy" decoding="async" /><p className="eyebrow">Richiesta ricevuta</p><h2>Ci vediamo<br /><span>a Villa Filippina.</span></h2><p>Grazie. Ti scriveremo presto con la conferma della tua prenotazione.</p><button className="button button--green" onClick={closeBooking}>Perfetto, grazie <ArrowIcon /></button></div>}</div></div>}
     </div>
   );
 }
