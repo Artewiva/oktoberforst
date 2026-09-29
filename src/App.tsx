@@ -15,6 +15,8 @@ const VILLA_LOGO_SRC = "/images/logo-villa-filippina.png";
 const VILLA_LOGO_ALT = "Logo Parco Villa Filippina — Location ufficiale Oktober Forst Palermo";
 const ARTEWIVA_LOGO_SRC = "/images/ARTEWIVA%205-01.%20linee%20Bianche.png";
 const ARTEWIVA_LOGO_ALT = "Logo Artewiva Palermo — Organizzazione eventi Oktober Forst";
+const FORST_LOGO_SRC = "/images/forst-logo.png";
+const FORST_LOGO_ALT = "Logo Birra Forst — birra italiana dal 1857, in collaborazione con Oktober Forst Palermo";
 
 const beers = ["Forst Kronen", "Forst Felsenkeller", "Forst Sixtus", "Forst VIP Pils", "Forst Hellerbock", "Forst Puro Malto"];
 
@@ -110,6 +112,27 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
         <em>FORST</em>
       </span>
     </span>
+  );
+}
+
+function SponsorLogo() {
+  const [imageAvailable, setImageAvailable] = useState(true);
+
+  if (!imageAvailable) {
+    return <strong>FORST</strong>;
+  }
+
+  return (
+    <img
+      className="sponsor-logo"
+      src={FORST_LOGO_SRC}
+      alt={FORST_LOGO_ALT}
+      width={107}
+      height={60}
+      loading="lazy"
+      decoding="async"
+      onError={() => setImageAvailable(false)}
+    />
   );
 }
 
@@ -429,7 +452,7 @@ function App() {
         <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giornate di concerti, tribute band e DJ set, con la Forst alla spina e la cucina bavarese che incontra Palermo.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito • 15 — 18 ottobre 2026</small></div></section>
       </main>
 
-      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>OKTOBER FORST</strong><span>Festa della Birra • Palermo</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a><a href="https://oktoberforst.vercel.app" target="_blank" rel="noreferrer">Sito ufficiale <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><strong>FORST</strong><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Oktober Forst Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
+      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>OKTOBER FORST</strong><span>Festa della Birra • Palermo</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a><a href="https://oktoberforst.vercel.app" target="_blank" rel="noreferrer">Sito ufficiale <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><SponsorLogo /><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Oktober Forst Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
 
     </div>
   );
