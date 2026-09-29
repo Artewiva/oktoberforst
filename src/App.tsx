@@ -19,26 +19,26 @@ const ARTEWIVA_LOGO_ALT = "Logo Artewiva Palermo — Organizzazione eventi Oktob
 const program: ProgramDay[] = [
   {
     date: "15",
-    weekday: "Giovedi",
+    weekday: "Giovedì",
     short: "GIO",
-    title: "L'apertura che sa di casa",
-    mood: "Ritmi folk, primi brindisi e tutta la voglia di stare insieme.",
+    title: "L’apertura che sa di casa",
+    mood: "Ritmi folk, primi brindisi e tanta voglia di stare insieme.",
     acts: [
-      { time: "18:30", name: "Apertura porte", detail: "Birra alla spina e area food" },
-      { time: "21:00", name: "Duo Intorre", detail: "Live set" },
-      { time: "22:30", name: "Live Folk Band", detail: "Traditional opening night", accent: true },
+      { time: "18:30", name: "Apertura porte", detail: "Birra alla spina e area food aperte" },
+      { time: "21:00", name: "Duo Intorre", detail: "Concerto dal vivo" },
+      { time: "22:30", name: "Live Folk Band", detail: "Folk tradizionale dal vivo", accent: true },
     ],
   },
   {
     date: "16",
-    weekday: "Venerdi",
+    weekday: "Venerdì",
     short: "VEN",
     title: "La piazza prende ritmo",
-    mood: "Popolare, energica, impossibile da vivere da fermi.",
+    mood: "Popolare ed energica: qui è impossibile restare fermi.",
     acts: [
-      { time: "18:30", name: "Apertura porte", detail: "Aperitivo al parco" },
-      { time: "21:30", name: "Piccola Orchestra Folk", detail: "Popular rhythms", accent: true },
-      { time: "23:30", name: "DJ set", detail: "Fino a tardi sotto le luci" },
+      { time: "18:30", name: "Apertura porte", detail: "Aperitivo nel verde del parco" },
+      { time: "21:30", name: "Piccola Orchestra Folk", detail: "Ritmi popolari dal vivo", accent: true },
+      { time: "23:30", name: "DJ set", detail: "Selezione musicale fino a tardi" },
     ],
   },
   {
@@ -46,11 +46,11 @@ const program: ProgramDay[] = [
     weekday: "Sabato",
     short: "SAB",
     title: "Il grande sabato live",
-    mood: "La serata piu attesa: due show, un parco pieno, zero pause.",
+    mood: "La serata più attesa: due show, il parco pieno e nessuna pausa.",
     acts: [
       { time: "18:30", name: "Apertura porte", detail: "Tavoli e street food" },
-      { time: "21:00", name: "inFaber Experience", detail: "Beatles Tribute", accent: true },
-      { time: "23:00", name: "The One Showman Poddighe", detail: "Live entertainment" },
+      { time: "21:00", name: "inFaber Experience", detail: "Tributo ai Beatles", accent: true },
+      { time: "23:00", name: "The One Showman Poddighe", detail: "One man show dal vivo" },
     ],
   },
   {
@@ -58,40 +58,40 @@ const program: ProgramDay[] = [
     weekday: "Domenica",
     short: "DOM",
     title: "Un finale da cantare",
-    mood: "L'ultimo giro, la luna sul parco e i classici che conosci a memoria.",
+    mood: "L’ultimo brindisi, le luci del parco e i classici che conosci a memoria.",
     acts: [
-      { time: "18:30", name: "Apertura porte", detail: "Sunday table session" },
-      { time: "21:00", name: "The Doors Tribute Band", detail: "The sound of the 60s", accent: true },
-      { time: "23:15", name: "Closing DJ Set", detail: "L'ultimo brindisi" },
+      { time: "18:30", name: "Apertura porte", detail: "Tavolate in compagnia" },
+      { time: "21:00", name: "The Doors Tribute Band", detail: "Il suono degli anni ’60", accent: true },
+      { time: "23:15", name: "DJ set di chiusura", detail: "Chiusura in musica" },
     ],
   },
 ];
 
 const faqs = [
   {
-    question: "L'ingresso e gratuito?",
+    question: "L’ingresso è gratuito?",
     answer:
-      "Si, l'ingresso al festival e gratuito per tutte le quattro giornate. La prenotazione del tavolo e consigliata per assicurarsi il proprio posto nelle serate piu richieste.",
+      "Sì, l’ingresso al festival è gratuito in tutte e quattro le giornate. La prenotazione del tavolo è consigliata per assicurarsi un posto nelle serate più affollate.",
   },
   {
     question: "Come posso prenotare un tavolo?",
     answer:
-      "Scrivici a parcovillafilippinaticket@gmail.com oppure scrivici su Facebook, Instagram o TikTok indicando giornata, numero di persone e un recapito. Il nostro team ti ricontattera per confermare disponibilita e dettagli.",
+      "Scrivici a parcovillafilippinaticket@gmail.com oppure contattaci su Facebook, Instagram o TikTok indicando la giornata, il numero di persone e un recapito. Il nostro team ti ricontatterà per confermare la disponibilità e i dettagli.",
   },
   {
-    question: "Posso venire con bambini e famiglia?",
+    question: "Si può venire con i bambini?",
     answer:
-      "Certo. Parco Villa Filippina e uno spazio aperto e accogliente per tutte le eta. I minori devono essere accompagnati da un adulto e non possono consumare alcolici.",
+      "Certo. Parco Villa Filippina è uno spazio aperto e accogliente per tutte le età. I minori devono essere accompagnati da un adulto e non possono consumare alcolici.",
   },
   {
     question: "Quali metodi di pagamento sono accettati?",
     answer:
-      "Alle casse e negli stand puoi pagare con carta, contactless e contanti. Per le prenotazioni tavolo riceverai tutte le istruzioni nella conferma.",
+      "Alle casse e negli stand puoi pagare con carta, contactless e contanti. Per le prenotazioni dei tavoli riceverai tutte le istruzioni nella conferma.",
   },
   {
     question: "Cosa succede in caso di pioggia?",
     answer:
-      "L'evento si svolge anche con condizioni meteo variabili: alcune aree sono coperte e il programma potrebbe subire piccoli cambiamenti per garantire a tutti una serata piacevole e sicura.",
+      "L’evento si svolge anche con condizioni meteo variabili: alcune aree sono coperte e il programma potrebbe subire piccoli cambiamenti per garantire a tutti una serata piacevole e sicura.",
   },
 ];
 
@@ -197,8 +197,8 @@ function Countdown() {
   ];
 
   return (
-    <div className="countdown" aria-label="Conto alla rovescia per l'apertura del festival">
-      <span className="countdown-label">Mancano all'apertura</span>
+    <div className="countdown" aria-label="Conto alla rovescia per l’apertura del festival">
+      <span className="countdown-label">Mancano all’apertura</span>
       <div className="countdown-values">
         {units.map(([value, label]) => (
           <span className="countdown-unit" key={label}>
@@ -253,7 +253,7 @@ function App() {
           <a className="nav-brand" href="#top" aria-label="Oktober Forst, torna in cima"><BrandMark compact /></a>
           <nav className={`nav-links ${mobileMenuOpen ? "nav-links--open" : ""}`} aria-label="Navigazione principale">
             <a href="#programma" onClick={() => setMobileMenuOpen(false)}>Programma</a>
-            <a href="#location" onClick={() => setMobileMenuOpen(false)}>Venue</a>
+            <a href="#location" onClick={() => setMobileMenuOpen(false)}>Location</a>
             <a href="#esperienza" onClick={() => setMobileMenuOpen(false)}>Birra &amp; food</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
             <button className="nav-book mobile-only" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button>
@@ -275,9 +275,9 @@ function App() {
                   </span>
                   <span>Festa della Birra — Palermo 2026</span>
                 </div>
-                <p className="eyebrow reveal reveal--up reveal-delay-1">15 - 18 OTTOBRE 2026 / PARCO VILLA FILIPPINA</p>
+                <p className="eyebrow reveal reveal--up reveal-delay-1">15 — 18 OTTOBRE 2026 • PARCO VILLA FILIPPINA</p>
                 <h1 className="reveal reveal--up reveal-delay-2">Quattro giorni.<br /><span>Una sola grande sete.</span></h1>
-                <p className="hero-intro reveal reveal--up reveal-delay-3">La festa Forst torna nel cuore di Palermo. Birra appena spillata, live music e sapori da condividere sotto gli alberi di Villa Filippina.</p>
+                <p className="hero-intro reveal reveal--up reveal-delay-3">La festa della birra Forst torna nel cuore di Palermo: birra appena spillata, musica dal vivo e sapori da condividere sotto gli alberi di Villa Filippina.</p>
                 <div className="hero-actions reveal reveal--up reveal-delay-4"><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><button className="text-link text-link--light" onClick={() => scrollTo("programma")}>Scopri il programma <ArrowIcon /></button></div>
                 <Countdown />
               </div>
@@ -296,7 +296,7 @@ function App() {
             </div>
             <div className="hero-foot reveal reveal--fade reveal-delay-4"><span>Palermo, Sicilia</span><span className="hero-foot-line" /><span>Ingresso gratuito</span></div>
           </div>
-          <a href="#highlights" className="scroll-cue" aria-label="Scorri per scoprire l'evento"><span>Scroll to explore</span><span className="scroll-cue-arrow">&#8595;</span></a>
+          <a href="#highlights" className="scroll-cue" aria-label="Scorri per scoprire l’evento"><span>Scorri per scoprire</span><span className="scroll-cue-arrow">&#8595;</span></a>
         </section>
 
         <section className="highlights" id="highlights" aria-label="Punti forti del festival">
@@ -319,7 +319,7 @@ function App() {
               <div className="program-panel" id={`day-panel-${program[activeDay].date}`} role="tabpanel">
                 <div className="program-panel-heading"><div><p className="panel-day">{program[activeDay].weekday} {program[activeDay].date} ottobre</p><h3>{program[activeDay].title}</h3></div><p>{program[activeDay].mood}</p></div>
                 <div className="act-list">{program[activeDay].acts.map((act) => <div className={`act-row ${act.accent ? "act-row--accent" : ""}`} key={act.name}><time>{act.time}</time><div className="act-line" /><div className="act-name"><strong>{act.name}</strong><span>{act.detail}</span></div>{act.accent && <span className="live-tag">Live</span>}</div>)}</div>
-                <div className="program-panel-foot"><span>Orari indicativi, programma soggetto a variazioni</span><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div>
+                <div className="program-panel-foot"><span>Orari indicativi: il programma può subire variazioni</span><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div>
               </div>
             </div>
           </div>
@@ -327,8 +327,8 @@ function App() {
 
         <section className="experience-section" id="esperienza">
           <div className="page-wrap experience-grid">
-            <div className="experience-image reveal reveal--left"><img src="/images/food-festival.jpg" alt="Birre e specialita siciliane su una tavola del festival" loading="lazy" decoding="async" /><span className="image-caption">Sapori da condividere</span></div>
-            <div className="experience-copy reveal reveal--right"><p className="eyebrow">L'esperienza</p><h2>Il gusto di<br /><span>stare insieme.</span></h2><p className="section-lead">Una tavola lunga, una birra fredda e il verde di Villa Filippina. Oktober Forst e il punto d'incontro tra l'anima bavarese e il calore siciliano.</p><div className="experience-details"><div className="detail-row"><span className="detail-index">01</span><div><strong>Forst appena spillata</strong><p>La bionda, la rossa e le specialita Forst servite alla temperatura perfetta.</p></div></div><div className="detail-row"><span className="detail-index">02</span><div><strong>Baviera incontra Sicilia</strong><p>Bratwurst, pretzel, arancine e ricette pensate per il tuo boccale.</p></div></div><div className="detail-row"><span className="detail-index">03</span><div><strong>Un parco in citta</strong><p>Quattro serate all'aperto tra alberi, luci calde e musica dal vivo.</p></div></div></div><button className="text-link text-link--dark" onClick={() => scrollTo("location")}>Scopri la venue <ArrowIcon /></button></div>
+            <div className="experience-image reveal reveal--left"><img src="/images/food-festival.jpg" alt="Birre e specialità siciliane su una tavola del festival" loading="lazy" decoding="async" /><span className="image-caption">Sapori da condividere</span></div>
+            <div className="experience-copy reveal reveal--right"><p className="eyebrow">L’esperienza</p><h2>Il gusto di<br /><span>stare insieme.</span></h2><p className="section-lead">Una tavola lunga, una birra fredda e il verde di Villa Filippina. Oktober Forst è il punto d’incontro tra l’anima bavarese e il calore siciliano.</p><div className="experience-details"><div className="detail-row"><span className="detail-index">01</span><div><strong>Forst appena spillata</strong><p>La bionda, la rossa e le specialità Forst servite alla temperatura perfetta.</p></div></div><div className="detail-row"><span className="detail-index">02</span><div><strong>Baviera incontra Sicilia</strong><p>Bratwurst, pretzel, arancine e ricette pensate per il tuo boccale.</p></div></div><div className="detail-row"><span className="detail-index">03</span><div><strong>Un parco in citta</strong><p>Quattro serate all’aperto tra alberi, luci calde e musica dal vivo.</p></div></div></div><button className="text-link text-link--dark" onClick={() => scrollTo("location")}>Scopri la location <ArrowIcon /></button></div>
           </div>
         </section>
 
@@ -340,7 +340,7 @@ function App() {
             <div className="crest-copy reveal reveal--right">
               <p className="eyebrow">Lo stemma ufficiale</p>
               <h2>Tradizione bavarese,<br /><span>cuore palermitano.</span></h2>
-              <p>Il crest Oktober Forst unisce i simboli della festa — luppolo, spighe, boccale schiumoso e le Alpi — con Parco Villa Filippina. Cercalo all'ingresso, sui boccali e sul palco: è la garanzia della vera Festa della Birra.</p>
+              <p>Lo stemma Oktober Forst unisce i simboli della festa — luppolo, spighe, boccale schiumoso e le Alpi — con Parco Villa Filippina. Lo trovi all’ingresso, sui boccali e sul palco: è la garanzia della vera Festa della Birra.</p>
               <div className="crest-badges">
                 <span>Dal 1857 — Birra Forst</span>
                 <span>Festa della Birra</span>
@@ -352,10 +352,10 @@ function App() {
 
         <section className="location-section section-cream" id="location">
           <div className="page-wrap">
-            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow">La venue</p><h2>Un giardino<br /><span>nel cuore di Palermo.</span></h2></div><p className="section-lead">Parco Villa Filippina e il nostro punto di ritrovo: facile da raggiungere, impossibile da dimenticare.</p></div>
+            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow">La location</p><h2>Un giardino<br /><span>nel cuore di Palermo.</span></h2></div><p className="section-lead">Parco Villa Filippina è il nostro punto di ritrovo: facile da raggiungere, impossibile da dimenticare.</p></div>
             <div className="location-grid reveal reveal--up reveal-delay-1">
               <div className="map-panel" aria-label="Mappa stilizzata di Parco Villa Filippina"><div className="map-lines map-lines--one" /><div className="map-lines map-lines--two" /><div className="map-lines map-lines--three" /><div className="map-park"><span>Parco<br />Villa Filippina</span></div><div className="map-pin"><PinIcon /></div><span className="map-label map-label--top">Via Dante</span><span className="map-label map-label--side">Via Villa Filippina</span><span className="map-label map-label--bottom">Piazza San Francesco di Paola</span><a className="map-open" href="https://www.google.com/maps/search/?api=1&query=Parco+Villa+Filippina+Palermo" target="_blank" rel="noreferrer">Apri in Google Maps <ArrowIcon /></a></div>
-              <div className="location-info"><div className="location-block"><span className="location-icon"><PinIcon /></span><div><small>Indirizzo</small><strong>Parco Villa Filippina</strong><p>Piazza San Francesco di Paola, 18<br />90138 Palermo PA</p></div></div><div className="location-block"><span className="location-icon"><CalendarIcon /></span><div><small>Orari festival</small><strong>15 - 18 ottobre 2026</strong><p>Ingresso dalle 18:30<br />Musica fino a tarda sera</p></div></div><div className="arrival-note"><strong>Come arrivare</strong><p>Raggiungici a piedi dal centro o con le linee AMAT. Per chi arriva in auto, consigliamo il parcheggio di Piazza Castello e le aree blu in zona.</p></div></div>
+              <div className="location-info"><div className="location-block"><span className="location-icon"><PinIcon /></span><div><small>Indirizzo</small><strong>Parco Villa Filippina</strong><p>Piazza San Francesco di Paola, 18<br />90138 Palermo PA</p></div></div><div className="location-block"><span className="location-icon"><CalendarIcon /></span><div><small>Orari festival</small><strong>15 — 18 ottobre 2026</strong><p>Ingresso dalle 18:30<br />Musica fino a tarda sera</p></div></div><div className="arrival-note"><strong>Come arrivare</strong><p>Raggiungici a piedi dal centro o con gli autobus AMAT. Per chi arriva in auto, consigliamo il parcheggio di Piazza Castello e le aree blu in zona.</p></div></div>
             </div>
           </div>
         </section>
@@ -386,7 +386,7 @@ function App() {
               </a>
               <a className="contact-card" href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">
                 <span className="contact-icon"><FacebookIcon /></span>
-                <div className="contact-body"><small>Facebook</small><strong>Parcovillafilippina</strong><p>Segui la pagina ufficiale per aggiornamenti, orari e novita.</p></div>
+                <div className="contact-body"><small>Facebook</small><strong>Parcovillafilippina</strong><p>Segui la pagina ufficiale per aggiornamenti, orari e novità.</p></div>
               </a>
               <a className="contact-card" href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">
                 <span className="contact-icon"><InstagramIcon /></span>
@@ -400,10 +400,10 @@ function App() {
           </div>
         </section>
 
-        <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giorni di musica, tavolate e birra Forst nel parco piu bello della citta.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito / 15 - 18 ottobre 2026</small></div></section>
+        <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giorni di musica, tavolate e birra Forst nel parco più bello della città.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito • 15 — 18 ottobre 2026</small></div></section>
       </main>
 
-      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>OKTOBER FORST</strong><span>Festa della Birra • Palermo</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Venue</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><strong>FORST</strong><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Oktober Forst Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
+      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>OKTOBER FORST</strong><span>Festa della Birra • Palermo</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><strong>FORST</strong><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Oktober Forst Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
 
     </div>
   );
