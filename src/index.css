@@ -19,7 +19,7 @@ img { display: block; max-width: 100%; }
 .brand-lockup { display: inline-flex; align-items: center; gap: 13px; }
 .brand-logo-badge { display: block; width: 56px; height: 56px; flex: 0 0 56px; border-radius: 50%; overflow: hidden; background: #f6f1e3; border: 2px solid var(--amber-bright); box-shadow: 0 6px 18px rgba(0,0,0,.28), 0 0 0 3px rgba(212,163,41,.18); }
 .brand-logo-badge img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.02); }
-.brand-type { display: flex; flex-direction: column; line-height: .82; letter-spacing: .05em; }
+.brand-type { display: flex; flex-direction: column; line-height: .82; letter-spacing: .05em; white-space: nowrap; }
 .brand-type strong { font-size: 16px; font-weight: 800; letter-spacing: .08em; }
 .brand-type em { margin-left: 9px; color: var(--amber-bright); font-size: 17px; font-style: normal; font-weight: 800; letter-spacing: .19em; }
 .brand-lockup--compact .brand-logo-badge { width: 44px; height: 44px; flex-basis: 44px; }
