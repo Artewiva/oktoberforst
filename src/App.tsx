@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
 
+type Act = {
+  time: string;
+  name: string;
+  detail: string;
+  accent?: boolean;
+  image?: string;
+  imageAlt?: string;
+};
+
 type ProgramDay = {
   date: string;
   weekday: string;
   short: string;
   title: string;
   mood: string;
-  acts: { time: string; name: string; detail: string; accent?: boolean }[];
+  acts: Act[];
 };
 
 const LOGO_SRC = "/images/LOGO%20FESTA%20DELLA%20BIRRA%202026.png";
@@ -29,7 +38,7 @@ const program: ProgramDay[] = [
     mood: "Si apre il festival: apertura dei fusti, musica dal vivo e il primo brindisi sotto le luci del parco.",
     acts: [
       { time: "18:00", name: "Inaugurazione", detail: "Apertura dei fusti e musica dal vivo" },
-      { time: "19:00", name: "Two Of Us", detail: "Concerto dal vivo" },
+      { time: "19:00", name: "Two Of Us", detail: "Concerto dal vivo", image: "/images/two-of-us.png", imageAlt: "Locandina Two Of Us — Massimo Intorre e Irene Cangemi, live alla Festa Della Birra" },
       { time: "21:30", name: "Babajaga", detail: "Concerto dal vivo", accent: true },
     ],
   },
@@ -40,9 +49,9 @@ const program: ProgramDay[] = [
     title: "La piazza prende ritmo",
     mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live dei Seattle Candles fino a tardi.",
     acts: [
-      { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese" },
-      { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true },
-      { time: "22:30", name: "Seattle Candles", detail: "Concerto dal vivo" },
+      { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese", image: "/images/south-island.png", imageAlt: "Locandina South Island — Traditional Irish Music alla Festa Della Birra" },
+      { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true, image: "/images/allen-folk-band.png", imageAlt: "Locandina Allen Folk Band — folk dal vivo alla Festa Della Birra" },
+      { time: "22:30", name: "Seattle Candles", detail: "Concerto dal vivo", image: "/images/seattle-candles.png", imageAlt: "Locandina Seattle Candles Unplugged — live alla Festa Della Birra" },
     ],
   },
   {
@@ -52,8 +61,8 @@ const program: ProgramDay[] = [
     title: "La serata dei Beatles",
     mood: "La serata dedicata ai Beatles: l’omaggio ai Fab Four dei The Fab Experience e, a seguire, lo show dal vivo di Carlo Poddighe.",
     acts: [
-      { time: "21:00", name: "The Fab Experience", detail: "Spettacolo omaggio ai Fab Four", accent: true },
-      { time: "22:00", name: "Carlo Poddighe", detail: "Show dal vivo" },
+      { time: "21:00", name: "The Fab Experience", detail: "Spettacolo omaggio ai Fab Four", accent: true, image: "/images/the-fab-experience.png", imageAlt: "Locandina The Fab Experience — Beatles tribute band dal vivo" },
+      { time: "22:00", name: "Carlo Poddighe", detail: "Show dal vivo", image: "/images/carlo-poddighe.png", imageAlt: "Locandina Carlo Poddighe — show dal vivo alla Festa Della Birra" },
     ],
   },
   {
@@ -364,7 +373,7 @@ function App() {
               </div>
               <div className="program-panel" id={`day-panel-${program[activeDay].date}`} role="tabpanel">
                 <div className="program-panel-heading"><div><p className="panel-day">{program[activeDay].weekday} {program[activeDay].date} ottobre</p><h3>{program[activeDay].title}</h3></div><p>{program[activeDay].mood}</p></div>
-                <div className="act-list">{program[activeDay].acts.map((act) => <div className={`act-row ${act.accent ? "act-row--accent" : ""}`} key={act.name}>{/^\d{2}:\d{2}$/.test(act.time) ? <time>{act.time}</time> : <span className="act-time">{act.time}</span>}<div className="act-line" /><div className="act-name"><strong>{act.name}</strong><span>{act.detail}</span></div>{act.accent && <span className="live-tag">Live</span>}</div>)}</div>
+                <div className="act-list">{program[activeDay].acts.map((act) => <div className={`act-row ${act.accent ? "act-row--accent" : ""} ${act.image ? "act-row--with-image" : ""}`} key={act.name}>{/^\d{2}:\d{2}$/.test(act.time) ? <time>{act.time}</time> : <span className="act-time">{act.time}</span>}<div className="act-line" /><div className="act-body"><div className="act-name"><strong>{act.name}</strong><span>{act.detail}</span></div>{act.accent && <span className="live-tag">Live</span>}</div>{act.image && <span className="act-poster" role="img" aria-label={act.imageAlt || `Locandina ${act.name}`}><img src={act.image} alt={act.imageAlt || `Locandina ${act.name}`} loading="lazy" decoding="async" /></span>}</div>)}</div>
                 <div className="program-panel-foot"><span>Orari indicativi: il programma può subire variazioni</span><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div>
               </div>
             </div>
