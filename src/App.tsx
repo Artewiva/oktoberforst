@@ -38,21 +38,22 @@ const program: ProgramDay[] = [
     weekday: "Venerdì",
     short: "VEN",
     title: "La piazza prende ritmo",
-    mood: "Il folk della Allen Folk Band apre la serata e la musica continua fino a tardi.",
+    mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live dei Seattle Candles fino a tardi.",
     acts: [
+      { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese" },
       { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true },
-      { time: "22:30", name: "Seattle Candels", detail: "Concerto dal vivo" },
+      { time: "22:30", name: "Seattle Candles", detail: "Concerto dal vivo" },
     ],
   },
   {
     date: "17",
     weekday: "Sabato",
     short: "SAB",
-    title: "Il grande sabato live",
-    mood: "La serata più attesa: due show di fila, il parco pieno e nessuna pausa.",
+    title: "La serata dei Beatles",
+    mood: "La serata dedicata ai Beatles: l’omaggio ai Fab Four dei The Fab Experience e, a seguire, lo show dal vivo di Carlo Poddighe.",
     acts: [
-      { time: "21:00", name: "The Fab Experience", detail: "Tributo ai Beatles", accent: true },
-      { time: "22:00", name: "Carlo Poddighe", detail: "One man show dal vivo" },
+      { time: "21:00", name: "The Fab Experience", detail: "Spettacolo omaggio ai Fab Four", accent: true },
+      { time: "22:00", name: "Carlo Poddighe", detail: "Show dal vivo" },
     ],
   },
   {
@@ -63,7 +64,7 @@ const program: ProgramDay[] = [
     mood: "Il tributo ai Doors e il DJ set finale: l’ultimo brindisi di questa edizione.",
     acts: [
       { time: "19:00", name: "American Players", detail: "The Doors Tribute", accent: true },
-      { time: "a seguire", name: "DJ set finale", detail: "Chiusura in musica" },
+      { time: "a seguire", name: "DJ set finale", detail: "L’ultimo brindisi di questa edizione" },
     ],
   },
 ];
@@ -356,7 +357,7 @@ function App() {
 
         <section className="program-section section-dark" id="programma">
           <div className="page-wrap">
-            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow eyebrow--amber">Il programma</p><h2>Ogni sera<br /><span>ha il suo ritmo.</span></h2></div><p className="section-lead">Dal folk dei primi brindisi ai grandi tributi del weekend: scegli la tua serata e preparati a cantare.</p></div>
+            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow eyebrow--amber">Il programma</p><h2>Ogni sera<br /><span>ha il suo ritmo.</span></h2></div><p className="section-lead">Quattro giorni di musica live: un calendario di appuntamenti che accompagna il pubblico dal primo brindisi fino alla chiusura del festival. Scegli la tua serata e preparati a cantare.</p></div>
             <div className="program-layout reveal reveal--up reveal-delay-1">
               <div className="day-tabs" role="tablist" aria-label="Giorni del programma">
                 {program.map((day, index) => <button className={`day-tab ${activeDay === index ? "day-tab--active" : ""}`} key={day.date} onClick={() => setActiveDay(index)} role="tab" aria-selected={activeDay === index} aria-controls={`day-panel-${day.date}`}><span>{day.short}</span><strong>{day.date}</strong></button>)}
