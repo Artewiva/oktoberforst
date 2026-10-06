@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PosterCarousel, type FestivalPoster } from "@/components/PosterCarousel";
 
 type Act = {
   time: string;
@@ -76,6 +77,33 @@ const program: ProgramDay[] = [
       { time: "A seguire", name: "DJ set", detail: "L’ultimo brindisi di questa edizione" },
     ],
   },
+];
+
+/**
+ * Tutte le locandine del programma, in un'unica lista: ogni live che ha una
+ * locandina diventa una slide della sfilata automatica (#locandine).
+ */
+const posters: FestivalPoster[] = program.flatMap((day, dayIndex) =>
+  day.acts
+    .filter((act): act is Act & { image: string } => Boolean(act.image))
+    .map((act) => ({
+      act: act.name,
+      detail: act.detail,
+      time: act.time,
+      weekday: day.weekday,
+      date: day.date,
+      dayIndex,
+      src: act.image,
+      alt: act.imageAlt || `Locandina ${act.name} — Festa Della Birra Palermo 2026`,
+      highlight: act.accent,
+    })),
+);
+
+const posterStats = [
+  `${String(posters.length).padStart(2, "0")} locandine`,
+  `${String(program.length).padStart(2, "0")} serate · 15—18 ottobre`,
+  "Parco Villa Filippina",
+  "Ingresso libero",
 ];
 
 const faqs = [
@@ -301,6 +329,11 @@ function App() {
     setMobileMenuOpen(false);
   };
 
+  const openProgramDay = (dayIndex: number) => {
+    setActiveDay(dayIndex);
+    scrollTo("programma");
+  };
+
   return (
     <div className="site-shell">
       <header className={`site-nav ${navScrolled ? "site-nav--scrolled" : ""}`}>
@@ -308,6 +341,7 @@ function App() {
           <a className="nav-brand" href="#top" aria-label="Festa Della Birra, torna in cima"><BrandMark compact /></a>
           <nav className={`nav-links ${mobileMenuOpen ? "nav-links--open" : ""}`} aria-label="Navigazione principale">
             <a href="#programma" onClick={() => setMobileMenuOpen(false)}>Programma</a>
+            <a href="#locandine" onClick={() => setMobileMenuOpen(false)}>Locandine</a>
             <a href="#location" onClick={() => setMobileMenuOpen(false)}>Location</a>
             <a href="#esperienza" onClick={() => setMobileMenuOpen(false)}>Birra &amp; food</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
@@ -377,6 +411,15 @@ function App() {
                 <div className="program-panel-foot"><span>Orari indicativi: il programma può subire variazioni</span><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="posters-section" id="locandine" aria-labelledby="locandine-title">
+          <div className="posters-grain" aria-hidden="true" />
+          <div className="page-wrap">
+            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow eyebrow--amber">Le locandine</p><h2 id="locandine-title">Tutte le locandine,<br /><span>una dopo l’altra.</span></h2></div><p className="section-lead">Le {String(posters.length).padStart(2, "0")} locandine ufficiali delle serate scorrono in automatico, nell’ordine del programma: passa il mouse per fermare la rotazione e clicca su un’immagine per vederla a schermo intero.</p></div>
+            <ul className="posters-strip">{posterStats.map((stat) => <li key={stat}><i aria-hidden="true" />{stat}</li>)}</ul>
+            <PosterCarousel posters={posters} onOpenProgram={openProgramDay} />
           </div>
         </section>
 
@@ -462,7 +505,7 @@ function App() {
         <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giornate di concerti, tribute band e DJ set, con la Forst alla spina e la cucina bavarese che incontra Palermo.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito • 15 — 18 ottobre 2026</small></div></section>
       </main>
 
-      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>FESTA DELLA BIRRA</strong><span>Palermo • 2026</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a><a href="https://oktoberforst.vercel.app" target="_blank" rel="noreferrer">Sito ufficiale <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><SponsorLogo /><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Festa Della Birra Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
+      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>FESTA DELLA BIRRA</strong><span>Palermo • 2026</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#locandine">Locandine</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a><a href="https://oktoberforst.vercel.app" target="_blank" rel="noreferrer">Sito ufficiale <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><SponsorLogo /><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Festa Della Birra Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
 
     </div>
   );
