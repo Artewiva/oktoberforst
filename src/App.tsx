@@ -48,11 +48,11 @@ const program: ProgramDay[] = [
     weekday: "Venerdì",
     short: "VEN",
     title: "La piazza prende ritmo",
-    mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live dei Seattle Cindles fino a tardi.",
+    mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live unplugged dei Seattle Candles fino a tardi.",
     acts: [
       { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese", image: "/images/south-island.png", imageAlt: "Locandina South Island — Traditional Irish Music alla Festa Della Birra" },
       { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true, image: "/images/allen-folk-band.png", imageAlt: "Locandina Allen Folk Band — folk dal vivo alla Festa Della Birra" },
-      { time: "22:30", name: "Seattle Cindles", detail: "Concerto dal vivo" },
+      { time: "22:30", name: "Seattle Candles", detail: "Concerto unplugged dal vivo", image: "/images/4.png", imageAlt: "Locandina Seattle Candles — concerto unplugged, venerdì 16 ottobre ore 22:30 alla Festa Della Birra" },
     ],
   },
   {
@@ -71,9 +71,9 @@ const program: ProgramDay[] = [
     weekday: "Domenica",
     short: "DOM",
     title: "Il gran finale",
-    mood: "Gran finale alle 19:00 con American Prayers – The Doors Tribute; a seguire, il DJ set accompagnerà l’ultimo brindisi di questa edizione.",
+    mood: "Gran finale alle 19:00 con The American Prayers – The Doors Tribute; a seguire, il DJ set accompagnerà l’ultimo brindisi di questa edizione.",
     acts: [
-      { time: "19:00", name: "American Prayers", detail: "The Doors Tribute", accent: true },
+      { time: "19:00", name: "The American Prayers", detail: "The Doors Tribute", accent: true, image: "/images/7.png", imageAlt: "Locandina The American Prayers — The Doors tribute band, domenica 18 ottobre ore 19:00 alla Festa Della Birra" },
       { time: "A seguire", name: "DJ set", detail: "L’ultimo brindisi di questa edizione" },
     ],
   },
