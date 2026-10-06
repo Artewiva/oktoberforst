@@ -38,7 +38,7 @@ const program: ProgramDay[] = [
     mood: "Si apre il festival: apertura dei fusti, musica dal vivo e il primo brindisi sotto le luci del parco.",
     acts: [
       { time: "18:00", name: "Inaugurazione", detail: "Apertura dei fusti e musica dal vivo" },
-      { time: "19:00", name: "Two Of Us", detail: "Concerto dal vivo", image: "/images/two-of-us.png", imageAlt: "Locandina Two Of Us — Massimo Intorre e Irene Cangemi, live alla Festa Della Birra" },
+      { time: "19:00", name: "Two of Us", detail: "Concerto dal vivo", image: "/images/two-of-us.png", imageAlt: "Locandina Two of Us — Massimo Intorre e Irene Cangemi, live alla Festa Della Birra" },
       { time: "21:30", name: "Babajaga", detail: "Concerto dal vivo", accent: true },
     ],
   },
@@ -47,11 +47,11 @@ const program: ProgramDay[] = [
     weekday: "Venerdì",
     short: "VEN",
     title: "La piazza prende ritmo",
-    mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live dei Seattle Candles fino a tardi.",
+    mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live dei Seattle Cindles fino a tardi.",
     acts: [
       { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese", image: "/images/south-island.png", imageAlt: "Locandina South Island — Traditional Irish Music alla Festa Della Birra" },
       { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true, image: "/images/allen-folk-band.png", imageAlt: "Locandina Allen Folk Band — folk dal vivo alla Festa Della Birra" },
-      { time: "22:30", name: "Seattle Candles", detail: "Concerto dal vivo", image: "/images/seattle-candles.png", imageAlt: "Locandina Seattle Candles Unplugged — live alla Festa Della Birra" },
+      { time: "22:30", name: "Seattle Cindles", detail: "Concerto dal vivo" },
     ],
   },
   {
@@ -69,11 +69,11 @@ const program: ProgramDay[] = [
     date: "18",
     weekday: "Domenica",
     short: "DOM",
-    title: "Un finale da cantare",
-    mood: "Il tributo ai Doors dei The American Players e il DJ set di Chiara: l’ultimo brindisi di questa edizione.",
+    title: "Il gran finale",
+    mood: "Gran finale alle 19:00 con American Prayers – The Doors Tribute; a seguire, il DJ set accompagnerà l’ultimo brindisi di questa edizione.",
     acts: [
-      { time: "19:00", name: "The American Players", detail: "The Doors Tribute", accent: true, image: "/images/The%20American%20Players.png", imageAlt: "Locandina The American Players — tributo ai Doors, 18 ottobre 2026 alle 19:00" },
-      { time: "22:00", name: "DJ Chiara", detail: "DJ set finale", image: "/images/Dj%20Chiara.png", imageAlt: "Locandina DJ Chiara — 18 ottobre 2026 alle 22:00" },
+      { time: "19:00", name: "American Prayers", detail: "The Doors Tribute", accent: true },
+      { time: "A seguire", name: "DJ set", detail: "L’ultimo brindisi di questa edizione" },
     ],
   },
 ];
@@ -357,7 +357,7 @@ function App() {
         <section className="highlights" id="highlights" aria-label="Punti forti del festival">
           <div className="page-wrap highlights-grid">
             <div className="highlight-item reveal reveal--up"><span className="highlight-number">04</span><span><strong>Giorni</strong><small>di festa</small></span></div>
-            <div className="highlight-item reveal reveal--up reveal-delay-1"><span className="highlight-icon">&#9835;</span><span><strong>Live + DJ set</strong><small>ogni sera</small></span></div>
+            <div className="highlight-item reveal reveal--up reveal-delay-1"><span className="highlight-icon">&#9835;</span><span><strong>Musica live</strong><small>DJ set finale</small></span></div>
             <div className="highlight-item reveal reveal--up reveal-delay-2"><span className="highlight-icon highlight-icon--beer">&#9679;</span><span><strong>Forst alla spina</strong><small>sei specialità</small></span></div>
             <div className="highlight-item reveal reveal--up reveal-delay-3"><span className="highlight-icon">&#10022;</span><span><strong>Gastronomia</strong><small>bavarese &amp; palermitana</small></span></div>
             <div className="highlight-item reveal reveal--up reveal-delay-4"><span className="highlight-number">€ 0</span><span><strong>Ingresso</strong><small>libero</small></span></div>
@@ -366,14 +366,14 @@ function App() {
 
         <section className="program-section section-dark" id="programma">
           <div className="page-wrap">
-            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow eyebrow--amber">Il programma</p><h2>Ogni sera<br /><span>ha il suo ritmo.</span></h2></div><p className="section-lead">Quattro giorni di musica live: un calendario di appuntamenti che accompagna il pubblico dal primo brindisi fino alla chiusura del festival. Scegli la tua serata e preparati a cantare.</p></div>
+            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow eyebrow--amber">Il programma</p><h2>Quattro giorni<br /><span>di musica live.</span></h2></div><p className="section-lead">Un calendario di appuntamenti accompagna il pubblico dal primo brindisi fino alla chiusura del festival. Scegli la tua serata e preparati a cantare.</p></div>
             <div className="program-layout reveal reveal--up reveal-delay-1">
               <div className="day-tabs" role="tablist" aria-label="Giorni del programma">
                 {program.map((day, index) => <button className={`day-tab ${activeDay === index ? "day-tab--active" : ""}`} key={day.date} onClick={() => setActiveDay(index)} role="tab" aria-selected={activeDay === index} aria-controls={`day-panel-${day.date}`}><span>{day.short}</span><strong>{day.date}</strong></button>)}
               </div>
               <div className="program-panel" id={`day-panel-${program[activeDay].date}`} role="tabpanel">
                 <div className="program-panel-heading"><div><p className="panel-day">{program[activeDay].weekday} {program[activeDay].date} ottobre</p><h3>{program[activeDay].title}</h3></div><p>{program[activeDay].mood}</p></div>
-                <div className="act-list">{program[activeDay].acts.map((act) => <div className={`act-row ${act.accent ? "act-row--accent" : ""} ${act.image ? "act-row--with-image" : ""}`} key={act.name}>{/^\d{2}:\d{2}$/.test(act.time) ? <time>{act.time}</time> : <span className="act-time">{act.time}</span>}<div className="act-line" /><div className="act-body"><div className="act-name"><strong>{act.name}</strong><span>{act.detail}</span></div>{act.accent && <span className="live-tag">Live</span>}</div>{act.image && <span className="act-poster" role="img" aria-label={act.imageAlt || `Locandina ${act.name}`}><img src={act.image} alt={act.imageAlt || `Locandina ${act.name}`} loading="lazy" decoding="async" /></span>}</div>)}</div>
+                <div className="act-list">{program[activeDay].acts.map((act) => <div className={`act-row ${act.accent ? "act-row--accent" : ""} ${act.image ? "act-row--with-image" : ""} ${/^\d{2}:\d{2}$/.test(act.time) ? "" : "act-row--time-label"}`} key={act.name}>{/^\d{2}:\d{2}$/.test(act.time) ? <time>{act.time}</time> : <span className="act-time">{act.time}</span>}<div className="act-line" /><div className="act-body"><div className="act-name"><strong>{act.name}</strong><span>{act.detail}</span></div>{act.accent && <span className="live-tag">Live</span>}</div>{act.image && <span className="act-poster" role="img" aria-label={act.imageAlt || `Locandina ${act.name}`}><img src={act.image} alt={act.imageAlt || `Locandina ${act.name}`} loading="lazy" decoding="async" /></span>}</div>)}</div>
                 <div className="program-panel-foot"><span>Orari indicativi: il programma può subire variazioni</span><button className="text-link text-link--amber" onClick={() => scrollTo("contatti")}>Contattaci <ArrowIcon /></button></div>
               </div>
             </div>
@@ -410,7 +410,7 @@ function App() {
             <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow">La location</p><h2>Un giardino<br /><span>nel cuore di Palermo.</span></h2></div><p className="section-lead">Dimora storica del XVIII secolo trasformata in grande parco urbano: il nostro punto di ritrovo, facile da raggiungere e impossibile da dimenticare.</p></div>
             <div className="location-grid reveal reveal--up reveal-delay-1">
               <div className="map-panel" aria-label="Mappa stilizzata di Parco Villa Filippina"><div className="map-lines map-lines--one" /><div className="map-lines map-lines--two" /><div className="map-lines map-lines--three" /><div className="map-park"><span>Parco<br />Villa Filippina</span></div><div className="map-pin"><PinIcon /></div><span className="map-label map-label--top">Via Dante</span><span className="map-label map-label--side">Via Villa Filippina</span><span className="map-label map-label--bottom">Piazza San Francesco di Paola</span><a className="map-open" href="https://www.google.com/maps/search/?api=1&query=Parco+Villa+Filippina+Palermo" target="_blank" rel="noreferrer">Apri in Google Maps <ArrowIcon /></a></div>
-              <div className="location-info"><div className="location-block"><span className="location-icon"><PinIcon /></span><div><small>Indirizzo</small><strong>Parco Villa Filippina</strong><p>Piazza San Francesco di Paola, 18<br />90138 Palermo PA</p></div></div><div className="location-block"><span className="location-icon"><CalendarIcon /></span><div><small>Orari festival</small><strong>15 — 18 ottobre 2026</strong><p>Si parte giovedì 15 alle 18:00 con l’inaugurazione<br />Musica dal vivo e DJ set ogni sera</p></div></div><div className="location-block"><span className="location-icon"><LeafIcon /></span><div><small>Nel parco</small><strong>10.000 m² di verde</strong><p>Prato centrale, Planetario e aree relax con tavoli in legno e spazi coperti.</p></div></div><div className="arrival-note"><strong>Come arrivare</strong><p>Raggiungici a piedi dal centro o con gli autobus AMAT. Per chi arriva in auto, consigliamo il parcheggio di Piazza Castello e le aree blu in zona.</p></div></div>
+              <div className="location-info"><div className="location-block"><span className="location-icon"><PinIcon /></span><div><small>Indirizzo</small><strong>Parco Villa Filippina</strong><p>Piazza San Francesco di Paola, 18<br />90138 Palermo PA</p></div></div><div className="location-block"><span className="location-icon"><CalendarIcon /></span><div><small>Orari festival</small><strong>15 — 18 ottobre 2026</strong><p>Si parte giovedì 15 alle 18:00 con l’inaugurazione<br />Musica dal vivo ogni giorno<br />DJ set domenica a seguire</p></div></div><div className="location-block"><span className="location-icon"><LeafIcon /></span><div><small>Nel parco</small><strong>10.000 m² di verde</strong><p>Prato centrale, Planetario e aree relax con tavoli in legno e spazi coperti.</p></div></div><div className="arrival-note"><strong>Come arrivare</strong><p>Raggiungici a piedi dal centro o con gli autobus AMAT. Per chi arriva in auto, consigliamo il parcheggio di Piazza Castello e le aree blu in zona.</p></div></div>
             </div>
           </div>
         </section>

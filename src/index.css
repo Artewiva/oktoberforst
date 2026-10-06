@@ -108,6 +108,8 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 6vw, 76px); letter-spacing: -.055e
 .act-list { padding: 14px 0 12px; }
 .act-row { display: grid; grid-template-columns: 50px 38px 1fr; align-items: center; min-height: 76px; border-bottom: 1px solid rgba(255,255,255,.12); }
 .act-row--with-image { grid-template-columns: 50px 38px minmax(0,1fr) 86px; gap: 14px; }
+.act-row--time-label { grid-template-columns: 76px 38px minmax(0,1fr); }
+.act-row--time-label.act-row--with-image { grid-template-columns: 76px 38px minmax(0,1fr) 86px; }
 .act-body { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-width: 0; }
 .act-row time, .act-row .act-time { color: rgba(255,255,255,.6); font-family: "Arial Narrow", Arial, sans-serif; font-size: 16px; }
 .act-row .act-time { color: rgba(255,255,255,.42); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
@@ -327,6 +329,7 @@ h2 { margin-bottom: 0; font-size: clamp(48px, 6vw, 76px); letter-spacing: -.055e
   .program-panel h3 { font-size: 25px; }
   .program-panel-heading > p { margin-top: 13px; text-align: left; }
   .act-row, .act-row--with-image { grid-template-columns: 41px 22px 1fr; min-height: 76px; gap: 0; }
+  .act-row--time-label, .act-row--time-label.act-row--with-image { grid-template-columns: 66px 22px 1fr; }
   .act-body { gap: 8px; }
   .act-name { padding-left: 13px; }
   .act-name strong { font-size: 18px; }
