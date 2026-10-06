@@ -70,10 +70,10 @@ const program: ProgramDay[] = [
     weekday: "Domenica",
     short: "DOM",
     title: "Un finale da cantare",
-    mood: "Il tributo ai Doors e il DJ set finale: l’ultimo brindisi di questa edizione.",
+    mood: "Il tributo ai Doors dei The American Players e il DJ set di Chiara: l’ultimo brindisi di questa edizione.",
     acts: [
-      { time: "19:00", name: "American Players", detail: "The Doors Tribute", accent: true },
-      { time: "a seguire", name: "DJ set finale", detail: "L’ultimo brindisi di questa edizione" },
+      { time: "19:00", name: "The American Players", detail: "The Doors Tribute", accent: true, image: "/images/The%20American%20Players.png", imageAlt: "Locandina The American Players — tributo ai Doors, 18 ottobre 2026 alle 19:00" },
+      { time: "22:00", name: "DJ Chiara", detail: "DJ set finale", image: "/images/Dj%20Chiara.png", imageAlt: "Locandina DJ Chiara — 18 ottobre 2026 alle 22:00" },
     ],
   },
 ];
