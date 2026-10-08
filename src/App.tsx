@@ -28,6 +28,36 @@ const ARTEWIVA_LOGO_ALT = "Logo Artewiva Palermo — organizzazione eventi Festa
 const FORST_LOGO_SRC = "/images/forst-logo.png";
 const FORST_LOGO_ALT = "Logo Birra Forst — birra italiana dal 1857, in collaborazione con Festa Della Birra Palermo";
 
+const partners = [
+  { name: "CreArt Eventi", src: "/images/creart%20eventi.jpg", alt: "Logo CreArt Eventi — partner della Festa Della Birra Palermo", width: 960, height: 960 },
+  { name: "Crocchia", src: "/images/crocchia-logo.png", alt: "Logo Crocchia — Mangia, bevi, condividi — partner della Festa Della Birra Palermo", width: 1200, height: 408 },
+  { name: "Artewiva", src: "/images/ARTEWIVA%205-01.%20linee%20Bianche.png", alt: "Logo Artewiva Palermo — partner della Festa Della Birra Palermo", width: 945, height: 945 },
+  { name: "Forst", src: "/images/forst-logo-verde.png", alt: "Logo Birra Forst — partner della Festa Della Birra Palermo", width: 640, height: 357 },
+];
+
+function PartnerSection() {
+  return (
+    <section className="partner-section" id="partner" aria-labelledby="partner-title">
+      <div className="page-wrap">
+        <div className="section-intro section-intro--split reveal reveal--up">
+          <div>
+            <p className="eyebrow">I partner</p>
+            <h2 id="partner-title">PARTNER</h2>
+          </div>
+          <p className="section-lead">Le realtà che rendono possibile la Festa Della Birra Palermo 2026.</p>
+        </div>
+        <ul className="partner-grid reveal reveal--up reveal-delay-1">
+          {partners.map((partner) => (
+            <li className="partner-card" key={partner.name}>
+              <img src={partner.src} alt={partner.alt} width={partner.width} height={partner.height} loading="lazy" decoding="async" />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 const beers = ["Forst Kronen", "Forst Felsenkeller", "Forst Sixtus", "Forst VIP Pils", "Forst Hellerbock", "Forst Puro Malto"];
 
 const program: ProgramDay[] = [
@@ -501,6 +531,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <PartnerSection />
 
         <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giornate di concerti, tribute band e DJ set, con la Forst alla spina e la cucina bavarese che incontra Palermo.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito • 15 — 18 ottobre 2026</small></div></section>
       </main>
