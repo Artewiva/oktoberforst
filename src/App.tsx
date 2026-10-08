@@ -39,8 +39,8 @@ const program: ProgramDay[] = [
     mood: "Si apre il festival: apertura dei fusti, musica dal vivo e il primo brindisi sotto le luci del parco.",
     acts: [
       { time: "18:00", name: "Inaugurazione", detail: "Apertura dei fusti e musica dal vivo" },
-      { time: "19:00", name: "Two of Us", detail: "Concerto dal vivo", image: "/images/two-of-us.png", imageAlt: "Locandina Two of Us — Massimo Intorre e Irene Cangemi, live alla Festa Della Birra" },
-      { time: "21:30", name: "Babajaga", detail: "Concerto dal vivo", accent: true },
+      { time: "19:00", name: "Two of Us", detail: "Concerto dal vivo", image: "/images/2.png", imageAlt: "Locandina Two of Us — Massimo Intorre e Irene Cangemi, giovedì 15 ottobre ore 19:00 alla Festa Della Birra" },
+      { time: "20:30", name: "Balkan Babajaga", detail: "Concerto dal vivo", accent: true, image: "/images/3.png", imageAlt: "Locandina Balkan Babajaga — concerto dal vivo, giovedì 15 ottobre ore 20:30 alla Festa Della Birra" },
     ],
   },
   {
@@ -48,11 +48,10 @@ const program: ProgramDay[] = [
     weekday: "Venerdì",
     short: "VEN",
     title: "La piazza prende ritmo",
-    mood: "Si parte con la musica tradizionale irlandese dei South Island, poi il folk della Allen Folk Band e il live unplugged dei Seattle Candles fino a tardi.",
+    mood: "Si parte con il folk della Allen Folk Band e si chiude con il live unplugged dei Seattle Candles fino a tardi.",
     acts: [
-      { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese", image: "/images/south-island.png", imageAlt: "Locandina South Island — Traditional Irish Music alla Festa Della Birra" },
-      { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true, image: "/images/allen-folk-band.png", imageAlt: "Locandina Allen Folk Band — folk dal vivo alla Festa Della Birra" },
-      { time: "22:30", name: "Seattle Candles", detail: "Concerto unplugged dal vivo", image: "/images/4.png", imageAlt: "Locandina Seattle Candles — concerto unplugged, venerdì 16 ottobre ore 22:30 alla Festa Della Birra" },
+      { time: "20:30", name: "Allen Folk Band", detail: "Folk dal vivo", accent: true, image: "/images/4.png", imageAlt: "Locandina Allen Folk Band — folk dal vivo, venerdì 16 ottobre ore 20:30 alla Festa Della Birra" },
+      { time: "22:00", name: "Seattle Candles", detail: "Concerto unplugged dal vivo", image: "/images/5.png", imageAlt: "Locandina Seattle Candles — concerto unplugged, venerdì 16 ottobre ore 22:00 alla Festa Della Birra" },
     ],
   },
   {
@@ -62,8 +61,8 @@ const program: ProgramDay[] = [
     title: "La serata dei Beatles",
     mood: "La serata dedicata ai Beatles: l’omaggio ai Fab Four dei The Fab Experience e, a seguire, lo show dal vivo di Carlo Poddighe.",
     acts: [
-      { time: "21:00", name: "The Fab Experience", detail: "Spettacolo omaggio ai Fab Four", accent: true, image: "/images/the-fab-experience.png", imageAlt: "Locandina The Fab Experience — Beatles tribute band dal vivo" },
-      { time: "22:00", name: "Carlo Poddighe", detail: "Show dal vivo", image: "/images/carlo-poddighe.png", imageAlt: "Locandina Carlo Poddighe — show dal vivo alla Festa Della Birra" },
+      { time: "21:00", name: "The Fab Experience", detail: "Spettacolo omaggio ai Fab Four", accent: true, image: "/images/6.png", imageAlt: "Locandina The Fab Experience — Beatles tribute band, sabato 17 ottobre ore 21:00 alla Festa Della Birra" },
+      { time: "22:00", name: "Carlo Poddighe", detail: "Show dal vivo", image: "/images/7.png", imageAlt: "Locandina Carlo Poddighe — show dal vivo, sabato 17 ottobre ore 22:00 alla Festa Della Birra" },
     ],
   },
   {
@@ -71,10 +70,11 @@ const program: ProgramDay[] = [
     weekday: "Domenica",
     short: "DOM",
     title: "Il gran finale",
-    mood: "Gran finale alle 19:00 con The American Prayers – The Doors Tribute; a seguire, il DJ set accompagnerà l’ultimo brindisi di questa edizione.",
+    mood: "Gran finale dalle 17:00 con la musica tradizionale irlandese dei South Island, alle 19:00 The American Prayers – The Doors Tribute e, a seguire, il DJ set di DJ Chiara per l’ultimo brindisi di questa edizione.",
     acts: [
-      { time: "19:00", name: "The American Prayers", detail: "The Doors Tribute", accent: true, image: "/images/7.png", imageAlt: "Locandina The American Prayers — The Doors tribute band, domenica 18 ottobre ore 19:00 alla Festa Della Birra" },
-      { time: "A seguire", name: "DJ set", detail: "L’ultimo brindisi di questa edizione" },
+      { time: "17:00", name: "South Island", detail: "Musica tradizionale irlandese", image: "/images/8.png", imageAlt: "Locandina South Island — Traditional Irish Music, domenica 18 ottobre ore 17:00 alla Festa Della Birra" },
+      { time: "19:00", name: "The American Prayers", detail: "The Doors Tribute", accent: true, image: "/images/9.png", imageAlt: "Locandina The American Prayers — The Doors tribute band, domenica 18 ottobre ore 19:00 alla Festa Della Birra" },
+      { time: "21:30", name: "DJ Chiara", detail: "DJ set — l’ultimo brindisi di questa edizione", image: "/images/10.png", imageAlt: "Locandina DJ Chiara — DJ set, domenica 18 ottobre ore 21:30 alla Festa Della Birra" },
     ],
   },
 ];
