@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PosterCarousel, type FestivalPoster } from "@/components/PosterCarousel";
+import { PhotoSlideshow, type FestivalPhoto } from "@/components/PhotoSlideshow";
 
 type Act = {
   time: string;
@@ -134,6 +135,30 @@ const posterStats = [
   `${String(program.length).padStart(2, "0")} serate · 15—18 ottobre`,
   "Parco Villa Filippina",
   "Ingresso libero",
+];
+
+/**
+ * Gli scatti ufficiali dell'edizione 2026, in ordine di file: i file vivono in
+ * `public/images/` con il nome assegnato dalla fotocamera (`_IC_*.jpg`) e
+ * scorrono in automatico nella sezione #foto.
+ */
+const photoFiles = [
+  "0034", "0046", "0087", "0104", "0133", "0134", "0168", "0291", "0295", "0310",
+  "0330", "0349", "0362", "0443", "0480", "0486", "0497", "0503", "0516", "0546",
+  "0553", "0569", "0575", "0616", "0625-HDR", "0636", "9511", "9532", "9536",
+  "9560", "9610", "9682", "9745", "9881", "9899", "9917", "9955", "9975", "9999",
+];
+
+const photos: FestivalPhoto[] = photoFiles.map((code, photoIndex) => ({
+  src: `/images/_IC_${code}.jpg`,
+  alt: `Foto ${photoIndex + 1} di ${photoFiles.length} — momenti della Festa Della Birra 2026 al Parco Villa Filippina, Palermo`,
+}));
+
+const photoStats = [
+  `${String(photos.length).padStart(2, "0")} scatti`,
+  "Edizione 2026",
+  "Parco Villa Filippina",
+  "15 — 18 ottobre",
 ];
 
 const faqs = [
@@ -372,6 +397,7 @@ function App() {
           <nav className={`nav-links ${mobileMenuOpen ? "nav-links--open" : ""}`} aria-label="Navigazione principale">
             <a href="#programma" onClick={() => setMobileMenuOpen(false)}>Programma</a>
             <a href="#locandine" onClick={() => setMobileMenuOpen(false)}>Locandine</a>
+            <a href="#foto" onClick={() => setMobileMenuOpen(false)}>Foto</a>
             <a href="#location" onClick={() => setMobileMenuOpen(false)}>Location</a>
             <a href="#esperienza" onClick={() => setMobileMenuOpen(false)}>Birra &amp; food</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
@@ -460,6 +486,15 @@ function App() {
           </div>
         </section>
 
+        <section className="photos-section" id="foto" aria-labelledby="foto-title">
+          <div className="photos-grain" aria-hidden="true" />
+          <div className="page-wrap">
+            <div className="section-intro section-intro--split reveal reveal--up"><div><p className="eyebrow eyebrow--amber">Galleria fotografica</p><h2 id="foto-title">I momenti<br /><span>della festa.</span></h2></div><p className="section-lead">Gli scatti dell’edizione 2026 al Parco Villa Filippina: concerti, brindisi e tavolate sotto le luci del parco. Le foto scorrono in automatico — fermati su uno scatto per vederlo a schermo intero.</p></div>
+            <ul className="photos-strip reveal reveal--up reveal-delay-1">{photoStats.map((stat) => <li key={stat}><i aria-hidden="true" />{stat}</li>)}</ul>
+            <PhotoSlideshow photos={photos} />
+          </div>
+        </section>
+
         <section className="crest-section section-cream" aria-label="Lo stemma ufficiale">
           <div className="page-wrap crest-grid">
             <div className="crest-visual reveal reveal--left">
@@ -537,7 +572,7 @@ function App() {
         <section className="closing-section"><div className="closing-pattern" /><div className="page-wrap closing-content reveal reveal--up"><img className="closing-logo" src={LOGO_SRC} alt={LOGO_ALT} width={148} height={148} loading="lazy" decoding="async" /><p className="eyebrow eyebrow--amber">Segna le date</p><h2>Palermo, ci vediamo<br /><span>al prossimo brindisi.</span></h2><p>Quattro giornate di concerti, tribute band e DJ set, con la Forst alla spina e la cucina bavarese che incontra Palermo.</p><button className="button button--amber" onClick={() => scrollTo("contatti")}>Contatti <ArrowIcon /></button><small>Ingresso gratuito • 15 — 18 ottobre 2026</small></div></section>
       </main>
 
-      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>FESTA DELLA BIRRA</strong><span>Palermo • 2026</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#locandine">Locandine</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a><a href="https://oktoberforst.vercel.app" target="_blank" rel="noreferrer">Sito ufficiale <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><SponsorLogo /><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Festa Della Birra Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
+      <footer className="site-footer"><div className="page-wrap"><div className="footer-top"><div className="footer-brand"><div className="footer-logo-block"><img src={LOGO_SRC} alt={LOGO_ALT} width={104} height={104} loading="lazy" decoding="async" /><div><strong>FESTA DELLA BIRRA</strong><span>Palermo • 2026</span></div></div><p>La festa della birra<br />nel cuore di Palermo.<br />15 — 18 ottobre 2026, Parco Villa Filippina.</p></div><div className="footer-links"><span className="footer-heading">Esplora</span><a href="#programma">Programma</a><a href="#locandine">Locandine</a><a href="#foto">Foto</a><a href="#location">Location</a><a href="#esperienza">Birra &amp; food</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></div><div className="footer-links"><span className="footer-heading">Seguici</span><a href="https://www.instagram.com/parcovillafilippinapalermo" target="_blank" rel="noreferrer">Instagram <span>&#8599;</span></a><a href="https://www.facebook.com/parcovillafilippina" target="_blank" rel="noreferrer">Facebook <span>&#8599;</span></a><a href="https://www.tiktok.com/@artewiva" target="_blank" rel="noreferrer">TikTok <span>&#8599;</span></a><a href="mailto:parcovillafilippinaticket@gmail.com">Email <span>&#8599;</span></a><a href="https://oktoberforst.vercel.app" target="_blank" rel="noreferrer">Sito ufficiale <span>&#8599;</span></a></div><div className="sponsor-lockup"><span>In collaborazione con</span><SponsorLogo /><small>BIRRA ITALIANA DAL 1857</small></div></div><div className="footer-bottom"><div className="footer-bottom-text"><span>© 2026 Festa Della Birra Palermo</span><span>Privacy policy &nbsp; / &nbsp; Cookie policy</span><span>Bevi responsabilmente. Vietato ai minori di 18 anni.</span></div><img className="footer-credit-logo" src={ARTEWIVA_LOGO_SRC} alt={ARTEWIVA_LOGO_ALT} width={120} height={120} loading="lazy" decoding="async" /></div></div></footer>
 
     </div>
   );
